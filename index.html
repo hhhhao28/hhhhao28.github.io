@@ -1,0 +1,396 @@
+﻿﻿<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5">
+    <title>F_ool的个人网页</title>
+    <meta name="description" content="00后, 学生，缺乏社会的毒打">
+    <meta name="keywords" content="Java,Spring,个人博客，微信小程序，博客">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="static/css/index.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.css">
+    <script type="text/javascript">
+        if (!!window.ActiveXObject || "ActiveXObject" in window) { //is IE?
+            alert('朋友，上古浏览器不支持呢~');
+        }
+    </script>
+    <script src="echarts.js"></script>
+    <script src="lib/echarts-gl.min.js"></script>
+    <style>
+        .a-text {
+            font-size: 15px;
+            color: #060606;
+            cursor: pointer;
+        }
+
+        .a-text:hover {
+            color: red;
+        }
+
+        .p1 {
+            font-size: 16px;
+            color: #0a001f;
+            width: 500px;
+        }
+
+        .p2 {
+            font-size: 16px;
+            color: #0a001f;
+            width: 1000px;
+            display: none;
+        }
+    </style>
+    </style>
+    <title>文本属性之文本缩进</title>
+    <style>
+          p {
+              font-size: 15px;
+              /* 文本的第一行首行缩进 多少距离 */
+              /* 如果在20加上负号的话 文字会向左缩进 */
+              /* text-indent: 20px; */
+             /*  2em  则缩进当前元素2个文字大小的距离*/
+              text-indent:2em;
+          }
+
+    </style>
+    <script src="jquery-2.2.4.min.js"></script>
+</head>
+
+<body>
+    <div id="body-wrap">
+        <nav class="not_index_bg" id="nav" style="background-image:url(https://api.ixiaowai.cn/api/api.php)">
+            <div id="page_site-info">
+                <div id="site-title">
+                    <span class="blogtitle"></span>
+                    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
+                    <script>
+                        var typed = new Typed(".blogtitle", {
+                            strings: ['求知若饥，虚心若愚', 'Stay Hungry Stay Foolish'],
+                            startDelay: 300,
+                            typeSpeed: 100,
+                            loop: true,
+                            backSpeed: 50,
+                            showCursor: true
+                        });
+                    </script>
+                </div>
+            </div>
+        </nav>
+        <main id="content-outer">
+            <div class="layout_page" id="content-inner">
+                <div class="aside_content" id="aside_content">
+                    <div class="card-widget card-info">
+                        <div class="card-content">
+                            <div class="card-info-avatar is-center">
+                                <img class="avatar-img"
+                                    src="20220916215112.jpg"
+                                    alt="avatar">
+                                <div class="author-info__name">F_ool</div>
+                                <div class="author-info__description">00后， </s>学生</s>，缺乏社会的毒打</div>
+                            </div>
+                            <div class="card-info-social-icons is-center">
+                                <a class="social-icon" href="https://github.com/laoxuai" target="_blank">
+                                    <i class="fa fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card-widget card-announcement">
+                        <div class="card-content">
+                            <div class="item-headline">
+                                <i class="fa fa-bullhorn" aria-hidden="true"></i>
+                                <span>一言</span>
+                            </div>
+                            <div id="hitokoto"></div>
+                        </div>
+                    </div>
+                    <div class="card-widget card-announcement">
+                        <div class="card-content">
+                            <div class="item-headline">
+                                <i class="fa fa-calendar" aria-hidden="true"></i>
+                                <span>今日诗词</span>
+                            </div>
+                            <div id="jinrishici-sentence"></div>
+                        </div>
+                    </div>
+
+                    <div class="card-widget card-webinfo">
+                        <div class="card-content">
+                            <div class="item-headline">
+                                <i class="fa fa-line-chart" aria-hidden="true"></i>
+                                <span>站点信息</span>
+                            </div>
+                            <div class="webinfo">
+                                <div class="webinfo-item">
+                                    <div class="webinfo-site-uv-name">本站访客数 :</div>
+                                    <div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div>
+                                </div>
+                                <div class="webinfo-item">
+                                    <div class="webinfo-site-name">本站总访问量 :</div>
+                                    <div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <article id="page">
+                    <div class="article-container">
+                        <h2><font face ="楷体"><font size="19"></font>Index</font></font></h2>
+                        <a href="#music"><h4><font face ="楷体"><font size="5">选择一首你想听的音乐吧</font></font></h4></a>
+                        <a href="#introduction"><h4><font face ="楷体"><font size="5">站主的个人介绍</font></font></h4></a>
+                        <a href="#detective_stories"><h4><font face ="楷体"><font size="5">站主的侦探小说史</font></font></h4></a>
+                        <a href="#deeplearning"><h4><font face ="楷体"><font size="5">站主的深度学习史</font></font></h4></a>
+                        <a href="#profesional_skil"><h4><font face ="楷体"><font size="5">站主的专业技能条</font></font></h4></a>
+                        <a href="#Amateur_skills"><h4><font face ="楷体"><font size="5">站主的业余技能条</font></font></h4></a>
+                        <a href="#future"><h4><font face ="楷体"><font size="5">站主的未来计划</font></font></h4></a>
+                        <a href="#other_state"><h4><font face ="楷体"><font size="5">站主的其他站点</font></font></h4></a>
+                        <a href="#connection"><h4><font face ="楷体"><font size="5">站主的联系方式</font></font></h4></a>
+                        <a href="#ps"><h4><font face ="楷体"><font size="5">备注</font></font></h4></a>
+                        <hr>
+
+                        
+                        <h2 id="music">音乐</h2>
+                        <meting-js auto="https://y.qq.com/n/ryqq/playlist/7713574197.html">
+                        </meting-js>
+                        <hr>
+
+
+                        <h2 id="introduction">个人介绍</h2>
+                        <p>大家好,我是福州大学的学生简晓昊.很高兴能这里与大家相遇.爱好LOL,羽毛球,跑步,侦探小说.
+                        <hr>
+
+                        
+                            <h2 id="detective_stories">侦探小说史</h2>
+                            
+                            
+                               
+                                <p>从很久以前就开始就很喜欢侦探小说,一开始看的是福尔摩斯系列的小说.福尔摩斯系列是非常适合侦探小说初学者的一部侦探小说集.福尔摩斯系列的小说故事性非常好,几乎每一起案件都非常离奇惊险扑朔迷离.每一起故事的发展都跌宕起伏,随着华生医生的描述读者会陷入难题,最后再由福尔摩斯揭露让人意想不到的真相.
+                                    作为一本小说来说他是合格的,甚至可以说是优秀的,但是作为一本推理小说来说,他只满足了读者阅读完后的快感,而没有给读者推理的感觉.书中出现的凶手一般只有在最后面才会显露出姓名,读者无法通过自己的推理得到"凶手是谁"这一问题的答案.这无疑大大降低了侦探小说的推理趣味性. </p>
+                                    
+                                
+                                <p>后来在冰菓的推荐下开始去看阿加莎所写的小说.刚开始阅读的时候,一下子让我想起来一直以来逃避外国文学作品的原因————一堆长长的姓名,没有耐心真的会看到一半因为人名记不住被劝退.还很记得第一本看的是《无人生还》,第一次看的时候把每处发生凶案的地方都折了个角,之后反复比对.可是结果
+                                    却是只要有人配合,任何人都可以是凶手,确实让我郁闷了几天. </p>
+                                
+                                <p>但是最令我膜拜,甚至可以称之为神作的小说同样也是出自阿婆之手.在这本小说中它的叙述者就是大众最后确认的凶手.所以这本书在某种程度上是凶手的自白书,所有的犯案过程都在主人公的叙事中呈现,只是疏漏了最关键的具体行为,从而使得罪犯得以在读者眼皮底下犯案,而不知道剧情的读者读到最后常会有一种被作者「骗」到的感觉.
+                                    那种在故事中间线索的矛头都指向第一人称叙述者"我"时,身为读者的我依然不敢相信作者会这样大胆,仍然觉得是作者抛出的障眼法,直到最后一步点明了那通电话的真谛后,被波洛将死的震撼感,让我不时地有再读一次的想法. </p>
+                                <p>诚然阿婆的著作在结案前都将嫌疑人都摆在了台面上,但是阿婆在叙述上也是会耍一些心机,纵使谜底揭晓,大部分作品给读者的感觉只是"哦,原来是这么回事“的感受.后来我在知乎上寻找推理小说时发现了宝藏————埃勒里奎因.看他们的作品（没错,是他们）你就好像在品一杯茶,循序渐进,又极富有逻辑性.来到针对读者的挑战书,
+                                    没有人不会去试着挑战作者,纵使无法正确推理,在得到答案的瞬间,也会给人"我怎么会漏掉这个线索"或者"确实是这样,我怎么就没想到"的感受.从推理的角度出发,他们的作品确实是在像读者发出挑战,把所有信息都告诉了读者,得到的结果也符合逻辑,就是一次向读者的推理能力的挑战.  </p>
+                                        
+                                
+                          
+                                
+                        
+                        <hr>
+                        <h2 id="deeplearning">深度学习史</h2>
+                        <p style="text-indent: 2em;">因为对深度学习这个名词听了很多的缘故,偶然间开启了自己的深度学习之旅.  
+                        <br>    
+                        <a href=""><h3>初步认识（制作中...）</h3></a>  
+                        <p style="text-indent: 2em;"></p> 
+                        <a href=""><h3>卷积神经网络（制作中...）</h3></a>
+                        <a href=""><h3>Resnet（制作中...）</h3></a>
+                        <a href=""><h3>循环神经网络（学习中...）</h3></a>
+                       
+                
+  
+                        <hr>
+                        <h2 id="profesional_skil">专业技能</h2>
+                        <div class="skillbox">
+                            <div class="skillbar">
+                                <div class="skillbar-title"
+                                    style="background: linear-gradient(to right, #FF0066 0%, #FF00CC 100%); width: 30%">
+                                    <span>Java</span>
+                                </div>
+                                <div class="skill-bar-percent">30%</div>
+                            </div>
+                            <div class="skillbar">
+                                <div class="skillbar-title"
+                                    style="background: linear-gradient(to right, #9900FF 0%, #CC66FF 100%); width: 20%">
+                                    <span>前端</span>
+                                </div>
+                                <div class="skill-bar-percent">20%</div>
+                            </div>
+                            <div class="skillbar">
+                                <div class="skillbar-title"
+                                    style="background: linear-gradient(to right, #2196F3 0%, #42A5F5 100%); width: 50%">
+                                    <span>Deeplearning</span>
+                                </div>
+                                <div class="skill-bar-percent">50%</div>
+                            </div>
+                            <div class="skillbar">
+                                <div class="skillbar-title"
+                                    style="background: linear-gradient(to right, #00BCD4 0%, #80DEEA 100%); width: 45%">
+                                    <span>Python</span>
+                                </div>
+                                <div class="skill-bar-percent">45%</div>
+                            </div>
+                           
+                        </div>
+                        <hr>
+                        <h2 id="Amateur_skills">业余技能</h2>
+                        <div class="skillbox">
+                            <div class="skillbar">
+                                <div class="skillbar-title"
+                                    style="background: linear-gradient(to right, #FF0066 0%, #FF00CC 100%); width: 65%">
+                                    <span>羽毛球</span>
+                                </div>
+                                <div class="skill-bar-percent">65%</div>
+                            </div>
+                            <div class="skillbar">
+                                <div class="skillbar-title"
+                                    style="background: linear-gradient(to right, #a09ca2 0%, #ff6669 100%); width: 45%">
+                                    <span>跑步</span>
+                                </div>
+                                <div class="skill-bar-percent">45%</div>
+                            </div>
+                            <div class="skillbar">
+                                <div class="skillbar-title"
+                                    style="background: linear-gradient(to right, #75f321 0%, #ad42f5 100%); width: 100%">
+                                    <span>LOL</span>
+                                </div>
+                                <div class="skill-bar-percent">100%</div>
+                            </div>
+                            <div class="skillbar">
+                                <div class="skillbar-title"
+                                    style="background: linear-gradient(to right, #3c00d4 0%, #ea808b 100%); width: 45%">
+                                    <span>麻将</span>
+                                </div>
+                                <div class="skill-bar-percent">45%</div>
+                            </div>
+                           
+                        </div>
+
+                        <hr>
+
+                        <h2 id="future">未来计划</h2>
+                        <p>很高兴能通过软件工程的机会制作个人主页来写下自己的未来计划,也很高兴能遇到张栋老师.第一次遇到对计算机行业发展,计算机学生未来方向
+                            该如何去寻找有独特理解的老师."如果十年前我们所学的与现在所学的一样,但是现在的要求却远远高于十年前的时候我们该怎么办?""在基础课
+                            学完以后大学四年的时间也结束了,我们又该如何继续提升自己达到行业要求""35岁是程序员的大关?不是.如果你能用十年的时间去迭代自己的能力
+                            ,那你十年所积累的经验是别人一两个月所无法替代的"
+                        <p>认真的听过老师的课以后,更加坚定了继续读研深造的想法.希望自己能不被时代抛下,希望自己能不断提升.与大家共勉.
+
+
+                        <hr>    
+                        <h2 id="other_state">其他站点</h2>
+                        <div class="tool">
+                            <p><a href="https://home.cnblogs.com/u/hhhhao" target="_blank" rel="noopener noreferrer">博客园</a></p>
+                            <p><a href="https://blog.csdn.net/qq_51307505?spm=1000.2115.3001.5343" target="_blank" rel="noopener noreferrer">CSDN</a></p>
+                            <p><a href="https://github.com/hhhhao28" target="_blank" rel="noopener noreferrer">Github</a></p>
+                        </div>
+                        <hr>
+                        <h2 id="connection">联系方式</h2>
+                        <p>QQ:3499694062</p>
+                        <p>email:3499694062@qq.com</p>
+                        <hr>
+                        <h2 id="ps">备注</h2>
+                        <p><font size="2">在制作网页过程中所引用的代码均处于开源状态，若有变更造成侵权请及时联系作者删除</font></p>
+                    </div>
+                </article>
+            </div>
+        </main>
+        <footer id="footer">
+            <div id="footer-wrap">
+                <div class="copyright">&copy;2022 -  BY F_ool</div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery.fancybox@2.1.5/source/jquery.fancybox.js"></script>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/instant.page@3.0.0/instantpage.js" type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lazysizes@5.2.0/lazysizes.min.js" async></script>
+    <!-- aplayer、meting -->
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <!-- require MetingJS -->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    <!-- nplayer -->
+    <script src="https://unpkg.com/nplayer@latest/dist/index.min.js"></script>
+
+    <!--   一言、今日诗词   -->
+    <script src="https://v1.hitokoto.cn/?encode=js&select=%23hitokoto" defer></script>
+    <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
+
+    <!-- 看板娘 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js"></script>
+
+    <!--鼠标点击效果-->
+    <script src="https://cdn.jsdelivr.net/gh/TRHX/CDN-for-itrhx.com@3.0.8/js/maodian.js"></script>
+
+    <script type="text/javascript">
+        console.clear();
+        console.log("%c 有朋自远方来, 不亦说乎.", "background:#24272A; color:#ffffff", "");
+        console.log("%c Github %c", "background:#24272A; color:#ffffff", "", "https://github.com/laoxuai");
+        console.log("%c 版本号: %c", "background:#24272A; color:#ffffff", "", "1.0.0");
+
+
+        (function ($) {
+            $.fn.snow = function (options) {
+                var $flake = $('<div id="snowbox" />').css({ 'position': 'absolute', 'z-index': '9999', 'top': '-50px' }).html('&#10052;'),
+                    documentHeight = $(document).height(),
+                    documentWidth = $(document).width(),
+                    defaults = {
+                        minSize: 10,
+                        maxSize: 20,
+                        newOn: 1000,
+                        flakeColor: "#AFDAEF" /* 此处可以定义雪花颜色，若要白色可以改为#FFFFFF */
+                    },
+                    options = $.extend({}, defaults, options);
+                var interval = setInterval(function () {
+                    var startPositionLeft = Math.random() * documentWidth - 100,
+                        startOpacity = 0.5 + Math.random(),
+                        sizeFlake = options.minSize + Math.random() * options.maxSize,
+                        endPositionTop = documentHeight - 200,
+                        endPositionLeft = startPositionLeft - 500 + Math.random() * 500,
+                        durationFall = documentHeight * 10 + Math.random() * 5000;
+                    $flake.clone().appendTo('body').css({
+                        left: startPositionLeft,
+                        opacity: startOpacity,
+                        'font-size': sizeFlake,
+                        color: options.flakeColor
+                    }).animate({
+                        top: endPositionTop,
+                        left: endPositionLeft,
+                        opacity: 0.2
+                    }, durationFall, 'linear', function () {
+                        $(this).remove()
+                    });
+                }, options.newOn);
+            };
+        })(jQuery);
+        $(function () {
+            $.fn.snow({
+                minSize: 5, /* 定义雪花最小尺寸 */
+                maxSize: 50,/* 定义雪花最大尺寸 */
+                newOn: 800  /* 定义密集程度，数字越小越密集 */
+            });
+        });
+
+        // 浏览器搞笑标题
+        var OriginTitle = document.title;
+        var titleTime;
+        document.addEventListener('visibilitychange', function () {
+            if (document.hidden) {
+                // $('[rel="icon"]').attr('href', "/funny.ico");
+                document.title = '╭(°A°`)╮ 页面崩溃啦 ~';
+                clearTimeout(titleTime);
+            }
+            else {
+                $('[rel="icon"]').attr('href', "/favicon.ico");
+                document.title = '(ฅ>ω<*ฅ) 噫又好啦 ~' + OriginTitle;
+                titleTime = setTimeout(function () {
+                    document.title = OriginTitle;
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+
+</html>
